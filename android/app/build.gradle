@@ -1,0 +1,79 @@
+
+
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+    
+}
+repositories {
+  // You can also use jcenter if you prefer
+  mavenCentral() 
+}
+
+android {
+    namespace = "com.example.screen_recorder"
+    compileSdk = 34
+    ndkVersion = "27.0.12077973"
+
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.example.screen_recorder"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = 24
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        
+        release {
+            minifyEnabled false
+            shrinkResources false
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'androidx.ads:ads-identifier:1.0.0-alpha01'
+    implementation 'com.google.ads.mediation:facebook:6.18.0.0' 
+    // implementation 'com.facebook.android:audience-network-sdk:6.18.0' 
+
+     implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+  // Audience Network SDK. 
+     implementation 'com.facebook.android:audience-network-sdk:5.11.0'// Or latest
+
+
+    // Used for the calls to addCallback() in the snippets on this page.
+    implementation 'com.google.guava:guava:28.0-android'
+
+    implementation 'com.google.android.gms:play-services-ads:23.6.0' 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
+    implementation 'com.github.HBiSoft:HBRecorder:3.0.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    //classpath 'com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:1.7.21-1.0.8' // Depending on your `kotlin_version` version.
+    // classpath 'ly.img.android.sdk:plugin:10.10.0'
+
+}
